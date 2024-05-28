@@ -15,7 +15,8 @@ const StyledNav = styled.nav`
   background-color: #fff;
   padding: 2rem 4rem 2.2rem;
   box-shadow: var(--shadow-md);
-  position: fixed;
+  position: sticky;
+  top: 0;
 `
 
 const StyledDiv = styled.div`

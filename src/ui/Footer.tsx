@@ -5,12 +5,17 @@ import Logo from "./Logo"
 import Heading from "./Heading"
 import { NavLink } from "react-router-dom"
 
-const StyledFooterContainer = styled.footer``
+const StyledFooterContainer = styled.footer`
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-black);
+  padding: 6.6rem 0;
+  color: #fff;
+`
 
 const StyledFooter = styled.div`
-  background-color: var(--color-black);
-  padding: 6.6rem 36rem;
-  color: #fff;
+  width: 62.5vw;
 `
 
 const StyledCopyright = styled.div`
@@ -60,6 +65,8 @@ const StyledContent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 2.4rem;
+  flex-wrap: wrap;
 `
 
 const StyledItem = styled.div`
@@ -106,89 +113,91 @@ const StyledInfo = styled.div`
 
 function Footer() {
   return (
-    <StyledFooterContainer>
-      <StyledFooter>
-        <Row type="horizontal" gap="0">
-          <Logo />
+    <>
+      <StyledFooterContainer>
+        <StyledFooter>
+          <Row type="horizontal" gap="0">
+            <Logo />
 
-          <StyledList>
-            <li>
-              <a href="https://google.com">
-                <FaFacebookF />
-              </a>
-            </li>
-            <li>
-              <a href="https://google.com">
-                <FaFacebookF />
-              </a>
-            </li>
-            <li>
-              <a href="https://google.com">
-                <FaFacebookF />
-              </a>
-            </li>
-          </StyledList>
-        </Row>
-
-        <StyledHr />
-
-        <StyledContent>
-          <StyledItem>
-            <Heading as="h6">Explore</Heading>
-            <ul>
+            <StyledList>
               <li>
-                <NavLink to="/">Home</NavLink>
+                <a href="https://google.com">
+                  <FaFacebookF />
+                </a>
               </li>
               <li>
-                <NavLink to="/about">About Us</NavLink>
+                <a href="https://google.com">
+                  <FaFacebookF />
+                </a>
               </li>
               <li>
-                <NavLink to="/services">Services</NavLink>
+                <a href="https://google.com">
+                  <FaFacebookF />
+                </a>
               </li>
-              <li>
-                <NavLink to="/appointments">Appointments</NavLink>
-              </li>
-              <li>
-                <NavLink to="/blog">Blog</NavLink>
-              </li>
-              <li>
-                <NavLink to="/contact">Contact Us</NavLink>
-              </li>
-            </ul>
-          </StyledItem>
-          <StyledItem>
-            <Heading as="h6">Keep in Touch</Heading>
-            <StyledInfo>
-              <div>Address:</div>
-              <p>24A Kingston St, Los Vegas NC 28202, USA.</p>
+            </StyledList>
+          </Row>
 
-              <div>Mail:</div>
-              <p>aben@gmail.com</p>
+          <StyledHr />
 
-              <div>Phone:</div>
-              <p>(08)957-957-957</p>
-            </StyledInfo>
-          </StyledItem>
-          <StyledItem>
-            <Heading as="h6">Working Hours</Heading>
-            <StyledInfo>
-              <div>Mon to Fri:</div>
-              <p>7am - 6pm</p>
+          <StyledContent>
+            <StyledItem>
+              <Heading as="h6">Explore</Heading>
+              <ul>
+                <li>
+                  <NavLink to="/">Home</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/about">About Us</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/services">Services</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/appointments">Appointments</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/blog">Blog</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/contact">Contact Us</NavLink>
+                </li>
+              </ul>
+            </StyledItem>
+            <StyledItem>
+              <Heading as="h6">Keep in Touch</Heading>
+              <StyledInfo>
+                <div>Address:</div>
+                <p>24A Kingston St, Los Vegas NC 28202, USA.</p>
 
-              <div>Sat:</div>
-              <p>9am - 7pm</p>
+                <div>Mail:</div>
+                <p>aben@gmail.com</p>
 
-              <div>Sun:</div>
-              <p>9am - 6pm</p>
-            </StyledInfo>
-          </StyledItem>
-        </StyledContent>
-      </StyledFooter>
+                <div>Phone:</div>
+                <p>(08)957-957-957</p>
+              </StyledInfo>
+            </StyledItem>
+            <StyledItem>
+              <Heading as="h6">Working Hours</Heading>
+              <StyledInfo>
+                <div>Mon to Fri:</div>
+                <p>7am - 6pm</p>
+
+                <div>Sat:</div>
+                <p>9am - 7pm</p>
+
+                <div>Sun:</div>
+                <p>9am - 6pm</p>
+              </StyledInfo>
+            </StyledItem>
+          </StyledContent>
+        </StyledFooter>
+      </StyledFooterContainer>
 
       <StyledCopyright>
         <span>&copy;</span> Copyright 2024 ABen Chang. All rights reserved.
       </StyledCopyright>
-    </StyledFooterContainer>
+    </>
   )
 }
 

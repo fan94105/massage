@@ -4,17 +4,21 @@ import Heading from "../../ui/Heading"
 import Row from "../../ui/Row"
 import Tag from "../../ui/Tag"
 
-const StyledBannerContainer = styled.div`
-  padding: 13.5rem 32rem 13.6rem;
+const SectionContainer = styled.section`
   background: linear-gradient(
     to right,
     var(--color-bg) 60%,
     var(--color-black) 60%
   );
+  padding: 13rem 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
 const StyledBanner = styled.div`
-  width: 100%;
+  width: 62.5vw;
   padding: 5.9rem 6.8rem 5.9rem 0;
   border: 10px solid var(--color-bg);
 
@@ -41,7 +45,7 @@ const StyledP = styled.p`
 
 function Banner() {
   return (
-    <StyledBannerContainer>
+    <SectionContainer>
       <StyledBanner>
         <Row type="vertical" gap="2.4">
           <div>
@@ -59,7 +63,7 @@ function Banner() {
           alt=""
         />
       </StyledBanner>
-    </StyledBannerContainer>
+    </SectionContainer>
   )
 }
 

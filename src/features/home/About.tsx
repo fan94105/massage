@@ -4,14 +4,20 @@ import Tag from "../../ui/Tag"
 import Badge from "../../ui/Badge"
 import { PiFlowerLotusThin } from "react-icons/pi"
 
-const StyledAbout = styled.section`
-  padding: 15rem 36rem;
+const SectionContainer = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15rem 0;
   background-color: var(--color-bg);
+`
+
+const StyledAbout = styled.div`
+  width: 62.5vw;
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   gap: 12.5rem;
-  justify-items: center;
 `
 
 const StyledDiv = styled.div`
@@ -64,35 +70,33 @@ const StyledBadgeContainer = styled.div`
 
 function About() {
   return (
-    <StyledAbout>
-      <StyledDiv>
-        <Tag>About us</Tag>
-
-        <Heading as="h3">
-          The Beauty is about being Comfortable in your own skin!
-        </Heading>
-
-        <StyledP>
-          There are many variations of passages of Lorem Ipsum available, but
-          the majority have suffered alteration in some form, buying to injected
-          humour, or randomised words which don't look even many desktop
-          publishing packages.
-        </StyledP>
-
-        <StyledBadgeContainer>
-          <Badge Icon={PiFlowerLotusThin}>Great Services</Badge>
-          <Badge Icon={PiFlowerLotusThin}>Great Services</Badge>
-          <Badge Icon={PiFlowerLotusThin}>Great Services</Badge>
-        </StyledBadgeContainer>
-      </StyledDiv>
-
-      <StyledImgContainer>
-        <img
-          src="https://images.unsplash.com/photo-1630305130592-210da48f151e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt=""
-        />
-      </StyledImgContainer>
-    </StyledAbout>
+    <SectionContainer>
+      <StyledAbout>
+        <StyledDiv>
+          <Tag>About us</Tag>
+          <Heading as="h3">
+            The Beauty is about being Comfortable in your own skin!
+          </Heading>
+          <StyledP>
+            There are many variations of passages of Lorem Ipsum available, but
+            the majority have suffered alteration in some form, buying to
+            injected humour, or randomised words which don't look even many
+            desktop publishing packages.
+          </StyledP>
+          <StyledBadgeContainer>
+            <Badge Icon={PiFlowerLotusThin}>Great Services</Badge>
+            <Badge Icon={PiFlowerLotusThin}>Great Services</Badge>
+            <Badge Icon={PiFlowerLotusThin}>Great Services</Badge>
+          </StyledBadgeContainer>
+        </StyledDiv>
+        <StyledImgContainer>
+          <img
+            src="https://images.unsplash.com/photo-1630305130592-210da48f151e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt=""
+          />
+        </StyledImgContainer>
+      </StyledAbout>
+    </SectionContainer>
   )
 }
 

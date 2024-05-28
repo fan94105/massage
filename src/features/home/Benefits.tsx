@@ -3,8 +3,15 @@ import Tag from "../../ui/Tag"
 import Heading from "../../ui/Heading"
 import { IoCheckboxSharp } from "react-icons/io5"
 
-const StyledBenefits = styled.section`
-  padding: 14rem 36rem 16rem;
+const SectionContainer = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14rem 0 16rem;
+`
+
+const StyledBenefits = styled.div`
+  width: 62.5vw;
 `
 
 const StyledHeader = styled.header`
@@ -14,7 +21,7 @@ const StyledHeader = styled.header`
 
 const StyledContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   column-gap: 10.5rem;
   row-gap: 3.5rem;
 `
@@ -44,80 +51,64 @@ const StyledP = styled.p`
 
 function Benefits() {
   return (
-    <StyledBenefits>
-      <StyledHeader>
-        <Tag>Our awesome benefits</Tag>
-        <Heading as="h3">Actually what you'll get from</Heading>
-      </StyledHeader>
-
-      <StyledContainer>
-        <StyledItem>
-          <IoCheckboxSharp />
-
-          <Heading as="h5">Optimised Energe Efficiency</Heading>
-
-          <StyledP>
-            The point of using Lorem Ipsum is that using making it look like
-            readable.
-          </StyledP>
-        </StyledItem>
-
-        <StyledItem>
-          <IoCheckboxSharp />
-
-          <Heading as="h5">Optimised Energe Efficiency</Heading>
-
-          <StyledP>
-            The point of using Lorem Ipsum is that using making it look like
-            readable.
-          </StyledP>
-        </StyledItem>
-
-        <StyledItem>
-          <IoCheckboxSharp />
-
-          <Heading as="h5">Optimised Energe Efficiency</Heading>
-
-          <StyledP>
-            The point of using Lorem Ipsum is that using making it look like
-            readable.
-          </StyledP>
-        </StyledItem>
-
-        <StyledItem>
-          <IoCheckboxSharp />
-
-          <Heading as="h5">Optimised Energe Efficiency</Heading>
-
-          <StyledP>
-            The point of using Lorem Ipsum is that using making it look like
-            readable.
-          </StyledP>
-        </StyledItem>
-
-        <StyledItem>
-          <IoCheckboxSharp />
-
-          <Heading as="h5">Optimised Energe Efficiency</Heading>
-
-          <StyledP>
-            The point of using Lorem Ipsum is that using making it look like
-            readable.
-          </StyledP>
-        </StyledItem>
-
-        <StyledItem>
-          <IoCheckboxSharp />
-
-          <Heading as="h5">Optimised Energe Efficiency</Heading>
-
-          <StyledP>
-            The point of using Lorem Ipsum is that using making it look like
-            readable.
-          </StyledP>
-        </StyledItem>
-      </StyledContainer>
-    </StyledBenefits>
+    <SectionContainer>
+      <StyledBenefits>
+        <StyledHeader>
+          <Tag>Our awesome benefits</Tag>
+          <Heading as="h3">Actually what you'll get from</Heading>
+        </StyledHeader>
+        <StyledContainer>
+          <StyledItem>
+            <IoCheckboxSharp />
+            <Heading as="h5">Optimised Energe Efficiency</Heading>
+            <StyledP>
+              The point of using Lorem Ipsum is that using making it look like
+              readable.
+            </StyledP>
+          </StyledItem>
+          <StyledItem>
+            <IoCheckboxSharp />
+            <Heading as="h5">Optimised Energe Efficiency</Heading>
+            <StyledP>
+              The point of using Lorem Ipsum is that using making it look like
+              readable.
+            </StyledP>
+          </StyledItem>
+          <StyledItem>
+            <IoCheckboxSharp />
+            <Heading as="h5">Optimised Energe Efficiency</Heading>
+            <StyledP>
+              The point of using Lorem Ipsum is that using making it look like
+              readable.
+            </StyledP>
+          </StyledItem>
+          <StyledItem>
+            <IoCheckboxSharp />
+            <Heading as="h5">Optimised Energe Efficiency</Heading>
+            <StyledP>
+              The point of using Lorem Ipsum is that using making it look like
+              readable.
+            </StyledP>
+          </StyledItem>
+          <StyledItem>
+            <IoCheckboxSharp />
+            <Heading as="h5">Optimised Energe Efficiency</Heading>
+            <StyledP>
+              The point of using Lorem Ipsum is that using making it look like
+              readable.
+            </StyledP>
+          </StyledItem>
+          <StyledItem>
+            <IoCheckboxSharp />
+            <Heading as="h5">Optimised Energe Efficiency</Heading>
+            <StyledP>
+              The point of using Lorem Ipsum is that using making it look like
+              readable.
+            </StyledP>
+          </StyledItem>
+        </StyledContainer>
+      </StyledBenefits>
+    </SectionContainer>
   )
 }
 
