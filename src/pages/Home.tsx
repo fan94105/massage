@@ -3,6 +3,9 @@ import Feature from "../features/home/Feature"
 import About from "../features/home/About"
 import Testimonials from "../features/home/Testimonials"
 import Benefits from "../features/home/Benefits"
+import Blog from "../features/home/Blog"
+import Service from "../features/home/Service"
+import Appointment from "../features/home/Appointment"
 
 function Home() {
   return (
@@ -13,9 +16,15 @@ function Home() {
 
       <About />
 
+      <Service />
+
       <Testimonials />
 
       <Benefits />
+
+      <Appointment />
+
+      <Blog />
     </>
   )
 }

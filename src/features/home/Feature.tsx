@@ -15,7 +15,7 @@ const StyledFeature = styled.div`
   gap: 10rem;
 
   /* 避免太小時 overflow */
-  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
   /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
 `
 

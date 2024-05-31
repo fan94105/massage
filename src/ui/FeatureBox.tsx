@@ -5,7 +5,7 @@ import Button from "./Button"
 const StyledFeatureBox = styled.div`
   display: grid;
 
-  h3 {
+  h5 {
     margin-bottom: 1rem;
   }
 
