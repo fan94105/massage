@@ -6,8 +6,8 @@ const Tag = styled.div`
   font-size: 1.5rem;
   font-weight: 600;
   text-transform: uppercase;
-  line-height: 1.5;
-  letter-spacing: 1px;
+  line-height: calc(1.5rem * 1.54);
+  letter-spacing: calc(1.5rem * 0.1);
 `
 
 export default Tag
