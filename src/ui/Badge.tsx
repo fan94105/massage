@@ -3,6 +3,8 @@ import styled from "styled-components"
 import Heading from "./Heading"
 
 const StyledBadge = styled.div`
+  width: 30%;
+  min-width: 120px;
   background-color: #fff;
   padding: 1.7rem 3rem 1.9rem;
   border: 1px solid var(--color-grey);

@@ -1,7 +1,7 @@
 import styled from "styled-components"
-import Tag from "../../ui/Tag"
-import Heading from "../../ui/Heading"
-import Button from "../../ui/Button"
+import Tag from "./Tag"
+import Heading from "./Heading"
+import Button from "./Button"
 
 const SectionContainer = styled.section`
   padding: 11.8rem 0 11.7rem;
@@ -12,7 +12,7 @@ const SectionContainer = styled.section`
   align-items: center;
 `
 
-const StyledBanner = styled.div`
+const StyledSubBanner = styled.div`
   width: 36vw;
   display: flex;
   flex-direction: column;
@@ -29,19 +29,29 @@ const StyledHeader = styled.header`
   }
 `
 
-function Banner() {
+interface SubBannerProps {
+  tag: string
+  title: string
+  btn?: boolean
+}
+
+function SubBanner({ tag, title, btn }: SubBannerProps) {
   return (
     <SectionContainer>
-      <StyledBanner>
+      <StyledSubBanner>
         <StyledHeader>
-          <Tag>Short story about us</Tag>
-          <Heading as="h2">The big story behind, our beautyness center</Heading>
+          <Tag>{tag}</Tag>
+          <Heading as="h2">{title}</Heading>
         </StyledHeader>
 
-        <Button>Make a reservation</Button>
-      </StyledBanner>
+        {btn && <Button>Make a reservation</Button>}
+      </StyledSubBanner>
     </SectionContainer>
   )
 }
 
-export default Banner
+SubBanner.defaultProps = {
+  btn: true,
+}
+
+export default SubBanner

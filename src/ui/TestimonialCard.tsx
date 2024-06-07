@@ -1,9 +1,10 @@
-import styled from "styled-components"
-import Row from "./Row"
+import styled, { css } from "styled-components"
 import StarRating from "./StarRating"
+import { tablet } from "../styles/device"
 
 const StyledTestimonialCard = styled.div`
   background-color: #fff;
+  width: 100%;
 `
 
 const StyledContent = styled.p`
@@ -18,7 +19,7 @@ const StyledTitle = styled.div`
   color: #fff;
 
   display: grid;
-  grid-template-columns: minmax(min(50px, 100%), 1fr) 3fr 1fr;
+  grid-template-columns: minmax(min(50px, 100%), 1fr) 3fr auto;
   gap: 2rem;
 
   img {
@@ -37,6 +38,7 @@ const StyledDiv = styled.div`
   align-self: center;
 
   display: grid;
+  gap: 0.2rem;
 `
 
 const StyledInfo = styled.div`
@@ -56,12 +58,23 @@ const StyledInfo = styled.div`
   }
 `
 
+const StyledPolyContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+`
+
 const StyledPoly = styled.span`
   display: inline-block;
   width: 3rem;
   height: 80%;
   background: #fff;
   clip-path: polygon(0 0, 100% 0, 100% 60%, 0% 100%);
+
+  ${tablet(css`
+    display: none;
+  `)}
 `
 
 function TestimonialCard() {
@@ -86,10 +99,10 @@ function TestimonialCard() {
           </StyledInfo>
         </StyledDiv>
 
-        <Row type="horizontal">
+        <StyledPolyContainer>
           <StyledPoly></StyledPoly>
           <StyledPoly></StyledPoly>
-        </Row>
+        </StyledPolyContainer>
       </StyledTitle>
     </StyledTestimonialCard>
   )

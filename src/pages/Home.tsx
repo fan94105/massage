@@ -5,7 +5,7 @@ import Testimonials from "../features/home/Testimonials"
 import Benefits from "../features/home/Benefits"
 import Blog from "../features/home/Blog"
 import Service from "../features/home/Service"
-import Appointment from "../features/home/Appointment"
+import Discount from "../ui/Discount"
 
 function Home() {
   return (
@@ -22,7 +22,7 @@ function Home() {
 
       <Benefits />
 
-      <Appointment />
+      <Discount />
 
       <Blog />
     </>

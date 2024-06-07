@@ -1,15 +1,20 @@
 import { NavLink } from "react-router-dom"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import Logo from "./Logo"
 import Button from "./Button"
-import { HiOutlineCalendar } from "react-icons/hi2"
+import {
+  HiOutlineBars3,
+  HiOutlineCalendar,
+  HiOutlineXMark,
+} from "react-icons/hi2"
 import { FaFacebookF, FaInstagram } from "react-icons/fa"
+import { tablet } from "../styles/device"
+import { useEffect, useState } from "react"
 
 const StyledNav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 999;
 
   width: 100%;
   background-color: #fff;
@@ -17,13 +22,40 @@ const StyledNav = styled.nav`
   box-shadow: var(--shadow-md);
   position: sticky;
   top: 0;
+  z-index: 999;
 `
 
-const StyledDiv = styled.div`
+const StyledDiv = styled.div<{ isOpen: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 3.2rem;
+
+  ${(props) =>
+    tablet(css`
+      flex-direction: column;
+
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background-color: #fff;
+      padding: 10rem;
+      box-shadow: 0 0 0 20rem #fff;
+      border-radius: 50%;
+
+      transition: all 350ms ease-out;
+
+      ${props.isOpen
+        ? css`
+            transform: translate(0, 0);
+            transition: transform 350ms ease-out;
+            opacity: 1;
+          `
+        : css`
+            transform: translate(100%, -100%);
+            opacity: 0;
+          `}
+    `)}
 `
 
 const StyledUl = styled.ul`
@@ -31,6 +63,39 @@ const StyledUl = styled.ul`
   justify-content: space-between;
   align-items: center;
   gap: 2.2rem;
+
+  li {
+    padding: 1rem;
+    border: 2px solid transparent;
+
+    &:hover {
+      border-bottom: 2px solid var(--color-primary-dark);
+    }
+
+    ${tablet(css`
+      border-bottom: 1px solid #ccc;
+      text-align: center;
+    `)}
+  }
+
+  ${tablet(css`
+    flex-direction: column;
+    align-items: unset;
+    gap: 4rem;
+
+    width: 50%;
+  `)}
+`
+
+const StyledSocialUl = styled.ul`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2.2rem;
+
+  ${tablet(css`
+    display: none;
+  `)}
 `
 
 const StyledNavLink = styled(NavLink)`
@@ -48,28 +113,71 @@ const StyledA = styled.a`
   }
 `
 
+const StyledToggleBtn = styled.button`
+  display: none;
+  position: relative;
+  z-index: 10000;
+
+  svg {
+    width: 3rem;
+    height: 3rem;
+    color: var(--color-primary-dark);
+    cursor: pointer;
+  }
+
+  ${tablet(css`
+    display: block;
+  `)}
+`
+
 function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  function close() {
+    setMenuOpen(false)
+  }
+
+  function handleClick() {
+    setMenuOpen((open) => !open)
+  }
+
+  useEffect(() => {
+    if (menuOpen) document.body.style.overflow = "hidden"
+
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [menuOpen])
+
   return (
     <StyledNav>
       <Logo />
 
-      <StyledDiv>
+      <StyledDiv isOpen={menuOpen}>
         <StyledUl>
           <li>
-            <StyledNavLink to="/">Home</StyledNavLink>
+            <StyledNavLink to="/" onClick={close}>
+              Home
+            </StyledNavLink>
           </li>
           <li>
-            <StyledNavLink to="/about">About</StyledNavLink>
+            <StyledNavLink to="/about" onClick={close}>
+              About
+            </StyledNavLink>
           </li>
           <li>
-            <StyledNavLink to="/services">Services</StyledNavLink>
+            <StyledNavLink to="/services" onClick={close}>
+              Services
+            </StyledNavLink>
           </li>
           <li>
-            <StyledNavLink to="/contact">Contact</StyledNavLink>
+            <StyledNavLink to="/contact" onClick={close}>
+              Contact
+            </StyledNavLink>
           </li>
         </StyledUl>
 
-        <StyledUl>
+        <StyledSocialUl>
           <li>
             <StyledA href="https://google.com">
               <FaFacebookF />
@@ -80,13 +188,17 @@ function Navbar() {
               <FaInstagram />
             </StyledA>
           </li>
-        </StyledUl>
+        </StyledSocialUl>
 
         <Button>
           <HiOutlineCalendar />
           <span>Reservation</span>
         </Button>
       </StyledDiv>
+
+      <StyledToggleBtn onClick={handleClick}>
+        {menuOpen ? <HiOutlineXMark /> : <HiOutlineBars3 />}
+      </StyledToggleBtn>
     </StyledNav>
   )
 }

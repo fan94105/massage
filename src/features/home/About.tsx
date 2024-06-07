@@ -1,8 +1,9 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import Heading from "../../ui/Heading"
 import Tag from "../../ui/Tag"
 import Badge from "../../ui/Badge"
 import { PiFlowerLotusThin } from "react-icons/pi"
+import { mobile } from "../../styles/device"
 
 const SectionContainer = styled.section`
   display: flex;
@@ -33,8 +34,8 @@ const StyledP = styled.p`
   margin-bottom: 3.7rem;
 `
 
-const StyledImgContainer = styled.span`
-  position: relative;
+const StyledImg = styled.span`
+  /* position: relative;
   align-self: center;
 
   img {
@@ -58,14 +59,44 @@ const StyledImgContainer = styled.span`
     position: absolute;
     top: -40px;
     right: -40px;
+  } */
+
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+
+  img {
+    display: block;
+    width: 90%;
+    height: 92%;
+    object-fit: cover;
+    object-position: center;
+    aspect-ratio: 1 / 1.14;
+    position: relative;
+    z-index: 10;
+    box-shadow: var(--shadow-md);
+  }
+
+  &::before {
+    content: "";
+    width: 90%;
+    height: 92%;
+    background-color: var(--color-primary-dark);
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 `
 
 const StyledBadgeContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   margin-right: 1.4rem;
+
+  ${mobile(css`
+    justify-content: center;
+  `)}
 `
 
 function About() {
@@ -89,12 +120,12 @@ function About() {
             <Badge Icon={PiFlowerLotusThin}>Great Services</Badge>
           </StyledBadgeContainer>
         </StyledDiv>
-        <StyledImgContainer>
+        <StyledImg>
           <img
             src="https://images.unsplash.com/photo-1630305130592-210da48f151e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt=""
           />
-        </StyledImgContainer>
+        </StyledImg>
       </StyledAbout>
     </SectionContainer>
   )

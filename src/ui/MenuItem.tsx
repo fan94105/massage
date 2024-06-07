@@ -1,5 +1,6 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import Heading from "./Heading"
+import { mobile } from "../styles/device"
 
 const StyledItem = styled.div`
   padding-bottom: 2rem;
@@ -23,6 +24,10 @@ const StyledHeader = styled.div`
   hr {
     width: 100%;
     border-top: 3px dotted #000;
+
+    ${mobile(css`
+      display: none;
+    `)}
   }
 `
 const StyledPrice = styled.div`
@@ -39,6 +44,10 @@ const StyledPrice = styled.div`
     font-weight: 400;
     line-height: calc(1.8rem * 1.65);
     letter-spacing: calc(1.8rem * 0.02);
+
+    ${mobile(css`
+      display: none;
+    `)}
   }
 `
 

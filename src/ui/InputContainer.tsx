@@ -2,7 +2,6 @@ import React from "react"
 import styled from "styled-components"
 
 const StyledInputContainer = styled.div`
-  width: 100%;
   border: 1px solid var(--color-primary-dark);
   box-shadow: var(--shadow-sm);
   background-color: #fff;

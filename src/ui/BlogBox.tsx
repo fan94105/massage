@@ -1,13 +1,29 @@
 import styled from "styled-components"
 import Heading from "./Heading"
+import { NavLink } from "react-router-dom"
 
-const StyledBlogBox = styled.div`
+const StyledBlogBox = styled(NavLink)`
   background-color: #edf5f7;
 
   img {
     display: block;
     width: 100%;
+    object-fit: cover;
+    object-position: center;
+    aspect-ratio: 1.14 / 1;
+    transition: all 0.2s;
   }
+
+  &:hover {
+    img {
+      transform: scale(1.2);
+    }
+  }
+`
+
+const StyledImg = styled.div`
+  max-height: 32.5rem;
+  overflow: hidden;
 `
 
 const StyledInfo = styled.div`
@@ -38,25 +54,25 @@ const StyledContent = styled.p`
   letter-spacing: calc(1.8rem * 0.02);
 `
 
-function BlogBox() {
+interface BlogBoxProps {
+  blog: IBlog
+}
+
+function BlogBox({ blog }: BlogBoxProps) {
   return (
-    <StyledBlogBox>
-      <img
-        src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        alt="massage"
-      />
+    <StyledBlogBox to={`/blog/${blog.id}`}>
+      <StyledImg>
+        <img src={blog.image} alt="massage" />
+      </StyledImg>
 
       <StyledInfo>
         <StyledAuthor>
-          28th May 2024 <span>&mdash;</span> By ABen Chang
+          28th May 2024 <span>&mdash;</span> By {blog.author}
         </StyledAuthor>
 
-        <Heading as="h6">Experience the beauty at our beauty spa</Heading>
+        <Heading as="h6">{blog.title}</Heading>
 
-        <StyledContent>
-          The point of using Lorem Ipsum hiter that using making it look like
-          others readable will get end.
-        </StyledContent>
+        <StyledContent>{blog.content}</StyledContent>
       </StyledInfo>
     </StyledBlogBox>
   )

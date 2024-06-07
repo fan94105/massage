@@ -1,4 +1,5 @@
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle, css } from "styled-components"
+import { tablet } from "./device"
 
 const GlobalStyles = createGlobalStyle`
 :root {
@@ -86,17 +87,30 @@ button {
   border: none;
   background: none;
   cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.95);
 }
 
 html {
   box-sizing: border-box;
   font-size: 62.5%; 
   font-family: 'Inter', sans-serif;
+
+  ${tablet(css`
+    font-size: 50%;
+  `)}
 }
 
 p {
   font-size: 1.8rem;
-  line-height: 1.7;
+  line-height: calc(1.8rem * 1.75);
   font-weight: 400;
 }
 `

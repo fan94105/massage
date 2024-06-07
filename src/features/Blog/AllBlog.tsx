@@ -1,37 +1,31 @@
 import styled from "styled-components"
-import Tag from "../../ui/Tag"
-import Heading from "../../ui/Heading"
-import BlogBox from "../../ui/BlogBox"
 import Button from "../../ui/Button"
+import BlogBox from "../../ui/BlogBox"
 
 const SectionContainer = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  margin: 14.5rem 0 15rem;
+  padding: 14.2rem 0 12rem;
 `
 
-const StyledBlog = styled.div`
+const StyledAllBlog = styled.div`
   width: 62.5vw;
 `
 
-const StyledHeader = styled.header`
-  text-align: center;
-  margin-bottom: 4.3rem;
-`
-
-const StyledContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
-  gap: 4.6rem;
-
+const StyledBlogs = styled.div`
   margin-bottom: 6rem;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  column-gap: 4.4rem;
+  row-gap: 6rem;
 `
 
-const StyledFooter = styled.footer`
+const StyledBtnRow = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
 `
 
 const fakeData: Array<IBlog> = [
@@ -65,29 +59,53 @@ const fakeData: Array<IBlog> = [
     image:
       "https://plus.unsplash.com/premium_photo-1681420615967-dbb8a8c4823e?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
+  {
+    id: 4,
+    date: new Date(),
+    author: "ABen Chang",
+    title: "The best and perfect skincare strategy",
+    content:
+      "The point of using Lorem Ipsum hiter that using making it look like others readable will get end.",
+    image:
+      "https://plus.unsplash.com/premium_photo-1661342494514-ea0a91375ae4?q=80&w=1769&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: 5,
+    date: new Date(),
+    author: "ABen Chang",
+    title: "Fell the natural reverse aging process",
+    content:
+      "The point of using Lorem Ipsum hiter that using making it look like others readable will get end.",
+    image:
+      "https://images.unsplash.com/photo-1552373438-9be21778554d?q=80&w=1769&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+  {
+    id: 6,
+    date: new Date(),
+    author: "ABen Chang",
+    title: "How to make the make-up stay last",
+    content:
+      "The point of using Lorem Ipsum hiter that using making it look like others readable will get end.",
+    image:
+      "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
 ]
 
-function Blog() {
+function AllBlog() {
   return (
     <SectionContainer>
-      <StyledBlog>
-        <StyledHeader>
-          <Tag>Our blog</Tag>
-          <Heading as="h3">Latest Updates</Heading>
-        </StyledHeader>
-
-        <StyledContainer>
+      <StyledAllBlog>
+        <StyledBlogs>
           {fakeData.map((blog) => (
             <BlogBox key={blog.id} blog={blog} />
           ))}
-        </StyledContainer>
-
-        <StyledFooter>
+        </StyledBlogs>
+        <StyledBtnRow>
           <Button variation="secondary">View more stories</Button>
-        </StyledFooter>
-      </StyledBlog>
+        </StyledBtnRow>
+      </StyledAllBlog>
     </SectionContainer>
   )
 }
 
-export default Blog
+export default AllBlog

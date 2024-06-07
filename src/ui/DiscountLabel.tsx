@@ -1,5 +1,6 @@
 import { HiEllipsisHorizontal } from "react-icons/hi2"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
+import { mobile } from "../styles/device"
 
 const StyledDiscountLabel = styled.div`
   display: grid;
@@ -9,9 +10,16 @@ const StyledDiscountLabel = styled.div`
 
   background-color: #fff;
   border: 1px solid #95bfcb;
+
+  ${mobile(css`
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  `)}
 `
 
 const StyledContact = styled.div`
+  padding: 2rem;
+
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
@@ -48,11 +56,16 @@ const StyledDiscountContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  ${mobile(css`
+    grid-row: 1;
+  `)}
 `
 
 const StyledDiscount = styled.div`
   text-align: center;
   white-space: nowrap;
+  padding: 1rem;
 
   div:first-child {
     font-size: 1.5rem;
